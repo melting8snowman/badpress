@@ -2,6 +2,7 @@
 ### Mockup of badpress service for complaints, yammer and bad reviews
 
 
+
 Two user profiles: a registered user and admin
 
 Features:
@@ -18,6 +19,5 @@ Features:
 
 
 Further development options: 
-
 A company could respond to the bad press given to them, but that feature will not be included in this development phase.
 
