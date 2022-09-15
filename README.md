@@ -3,7 +3,8 @@
 
 
 
-**Two user profiles:** a registered user and admin
+
+**Two user profiles:** registered user and admin
 
 **Features:**
 
