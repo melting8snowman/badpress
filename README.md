@@ -8,7 +8,7 @@
 
 *A Registered user* can:
  * create bad review
- * edit a review created by him/her
+ * edit/delete a review created by him/her
  * view other reviews
  * correlate to other reviews by clicking Like/Vote up -button
  * search for a specific company for reviews
