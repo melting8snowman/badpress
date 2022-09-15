@@ -16,5 +16,8 @@ Features:
  * delete insulting or abusive reviews
  * search for a bad review based on ID#
 
-Further development options: A company could respond to the bad press given to them, but that feature will not be included in this development phase.
+
+Further development options: 
+
+A company could respond to the bad press given to them, but that feature will not be included in this development phase.
 
