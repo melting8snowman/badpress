@@ -1,0 +1,7 @@
+Message count: {{ count }}
+<hr>
+{% for message in messages %}
+{{ message.content }}
+<hr>
+{% endfor %}
+<a href="/new">Add row</a>
