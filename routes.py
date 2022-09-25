@@ -17,12 +17,22 @@ def new():
 
 @app.route("/send", methods=["POST"])
 def send():
+    company = request.form["company"]
     content = request.form["content"]
-    if posts.send(content):
+
+    if posts.send(company, content):
         return redirect("/")
     else:
         return render_template("error.html", message="An error occurred while trying to add post. Please try again.")
 
+#search
+@app.route("/search")
+def search():
+    query = request.args["query"]
+    sql = "SELECT id, company_id, content, user_id, posted_at FROM posts WHERE company LIKE :query"
+    result = db.session.execute(sql, {"query":"%"+query+"%"})
+    posts = result.fetchall()
+    return render_template("results.html", posts=posts, company=company)
 
 ## Users 
 #login
