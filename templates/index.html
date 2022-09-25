@@ -1,7 +1,14 @@
-Message count: {{ count }}
+Currently there are  {{ count }} badpress posts.
 <hr>
-{% for message in messages %}
-{{ message.content }}
+{% for post in posts %}
+{{ posts.content }}
 <hr>
 {% endfor %}
-<a href="/new">Add row</a>
+
+
+{% if session.user_id %}
+Successful login.
+<a href="/new_entry">Add rows</a> | <a href="/logout">Logout</a>
+{% else %}
+<a href="/login">Login</a>
+{% endif %}

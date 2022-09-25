@@ -10,11 +10,4 @@ app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
 db = SQLAlchemy(app)
 #app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-
-## pages
-# initial
-@app.route("/")
-def index():
-    result = db.session.execute("SELECT content FROM messages")
-    messages = result.fetchall()
-    return render_template("index.html", count=len(messages), messages=messages) 
+import routes
