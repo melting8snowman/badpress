@@ -30,3 +30,9 @@ def register(username, password):
 
 def user_id():
     return session.get("user_id",0)
+
+def get_username():
+    uname = user_id()
+    sql = "SELECT username FROM users WHERE id = :uname"
+    result = db.session.execute(sql, {"uname":uname})
+    return result.fetchone()

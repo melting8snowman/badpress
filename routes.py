@@ -8,9 +8,8 @@ import posts, users
 @app.route("/")
 def index():
     list = posts.get_list()
-
-    #return render_template("index.html", count=len(list), posts=list)
-    return render_template("index.html", count=len(list), posts=list)
+    username = users.get_username()
+    return render_template("index.html", count=len(list), posts=list, username=username)
 
 # add post
 @app.route("/new_entry")

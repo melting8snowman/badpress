@@ -1,5 +1,8 @@
+Welcome to Badpress!
+<hr>
 {% if session.user_id %}
-Successful login {{ session.username }}.
+logged in as user {{ username[0] }}.
+<br>
 <a href="/new_entry">Add rows</a> | <a href="/logout">Logout</a> | <a href="/search">Search for a company</a>
 {% else %}
 <a href="/login">Login</a>
