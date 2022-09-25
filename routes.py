@@ -8,6 +8,8 @@ import posts, users
 @app.route("/")
 def index():
     list = posts.get_list()
+
+    #return render_template("index.html", count=len(list), posts=list)
     return render_template("index.html", count=len(list), posts=list)
 
 # add post
@@ -29,7 +31,7 @@ def send():
 @app.route("/search")
 def search():
     query = request.args["query"]
-    sql = "SELECT id, company_id, content, user_id, posted_at FROM posts WHERE company LIKE :query"
+    sql = "SELECT id, company_id, companyname, content, user_id, posted_at FROM posts WHERE company LIKE :query"
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     posts = result.fetchall()
     return render_template("results.html", posts=posts, company=company)

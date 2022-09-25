@@ -3,7 +3,7 @@ import users
 
 def get_list():
     #sql = "SELECT P.company, P.content, U.username, P.sent_at FROM posts P, users U WHERE P.user_id=U.id ORDER BY P.id"
-    sqlall = "SELECT * FROM posts as P ORDER BY P.id"
+    sqlall = "SELECT id, company_id, companyname, content, user_id, posted_at FROM posts ORDER BY company_id"
     result = db.session.execute(sqlall)
     return result.fetchall()
 

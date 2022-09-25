@@ -1,14 +1,19 @@
-Currently there are  {{ count }} badpress posts.
-<hr>
-{% for post in posts %}
-{{ posts.content }}
-<hr>
-{% endfor %}
-
-
 {% if session.user_id %}
-Successful login.
+Successful login {{ session.username }}.
 <a href="/new_entry">Add rows</a> | <a href="/logout">Logout</a> | <a href="/search">Search for a company</a>
 {% else %}
 <a href="/login">Login</a>
 {% endif %}
+<hr>
+Currently there are  {{ count }} badpress posts.
+<hr>
+{% for post in posts %}
+<i>company:</i> {{ post.companyname }}
+<p>
+<i>badpress:</i> {{ post.content }}
+<p>
+<i>Time:</i> {{ post.posted_at.strftime("%Y-%m-%d %H:%M:%S") }}
+<hr>
+{% endfor %}
+
+
