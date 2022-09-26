@@ -9,7 +9,8 @@ import posts, users
 def index():
     list = posts.get_list()
     username = users.get_username()
-    return render_template("index.html", count=len(list), posts=list, username=username)
+    searched = bool(False)
+    return render_template("index.html", count=len(list), posts=list, username=username, searched=searched)
 
 # add post
 @app.route("/new_entry")
@@ -29,11 +30,18 @@ def send():
 #search
 @app.route("/search")
 def search():
+    return render_template("search.html")
+
+@app.route("/results")
+def results():
     query = request.args["query"]
-    sql = "SELECT id, company_id, companyname, content, user_id, posted_at FROM posts WHERE company LIKE :query"
-    result = db.session.execute(sql, {"query":"%"+query+"%"})
-    posts = result.fetchall()
-    return render_template("results.html", posts=posts, company=company)
+    rowcount, list = posts.get_comp_list(query)
+    username = users.get_username()
+    if rowcount == 0:
+        return render_template("error.html", message="No data found. Please try again with another search item.")
+    else:
+        searched = bool(True)
+        return render_template("index.html", count=len(list), posts=list, username=username, searched=searched, company=query)
 
 ## Users 
 #login

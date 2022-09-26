@@ -2,11 +2,11 @@
 ### Mockup of badpress service for complaints, yammer and bad reviews
 
 Current status: most or services operational, 
-however app does not seem to run properly on heroku for reason I have not yet find out.
+User profiles and likes to be implemented.
 
 [badpress at heroku](https://badpress.herokuapp.com/)
 
-Admin activities to be implemented.
+
 
 **Two user profiles:** registered user and admin
 

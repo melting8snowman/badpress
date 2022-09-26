@@ -3,12 +3,20 @@ Welcome to Badpress!
 {% if session.user_id %}
 logged in as user {{ username[0] }}.
 <br>
+{% if searched %}
+<a href="/new_entry">Add rows</a> | <a href="/logout">Logout</a> | <a href="/">Show all badpress</a>
+{% else %}
 <a href="/new_entry">Add rows</a> | <a href="/logout">Logout</a> | <a href="/search">Search for a company</a>
+{% endif %}
 {% else %}
 <a href="/login">Login</a>
 {% endif %}
 <hr>
+{% if searched %}
+Currently there are  {{ count }} badpress posts matching the search for company {{ company }}.
+{% else %}
 Currently there are  {{ count }} badpress posts.
+{% endif %}
 <hr>
 {% for post in posts %}
 <i>company:</i> {{ post.companyname }}

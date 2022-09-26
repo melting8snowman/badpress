@@ -7,6 +7,13 @@ def get_list():
     result = db.session.execute(sqlall)
     return result.fetchall()
 
+def get_comp_list(query):
+    print("searching for", query)
+    sql = "SELECT id, company_id, companyname, content, user_id, posted_at FROM posts WHERE companyname LIKE :query"
+    result = db.session.execute(sql, {"query":"%"+query+"%"})
+    list = result.fetchall()
+    rowcount = len(list)    
+    return rowcount, list
 
 def send(company, content):
     company = company.lower()
@@ -18,8 +25,6 @@ def send(company, content):
     result = db.session.execute(sql_check, {"company":company})
     
     num_result = result.rowcount
-
-    
     if int(num_result) == 0:  
         sqlinsert = "INSERT INTO companies (companyname) VALUES (:company)"
         db.session.execute(sqlinsert, {"company":company})
@@ -27,7 +32,6 @@ def send(company, content):
         result = db.session.execute(sql_check, {"company":company})
     
     companyid = result.fetchone()[0]
-    #print("companyid is now", companyid)
 
     sql = "INSERT INTO posts (company_id, companyname, content, user_id, posted_at) VALUES (:companyid, :company, :content, :user_id, NOW())"
     db.session.execute(sql, {"companyid":companyid, "company":company, "content":content, "user_id":user_id})
