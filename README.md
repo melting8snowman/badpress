@@ -3,7 +3,7 @@
 
 Current status: all services operational, 
 potentially a single post (badpress) view might be added.
-Also might add some visuality, but that is not a necessity.
+Also some visuality improvements might follow, but that is not a necessity.
 
 [badpress can be run at heroku](https://badpress.herokuapp.com/)
 
