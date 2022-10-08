@@ -1,3 +1,9 @@
+{% extends "layout.html" %}
+{% block title %}Add new badpress{% endblock %}
+{% block content %}
+
+<h2>Add new badpress</h2>
+<br>
 <form action="/send" method="post">
 Company: 
 <br>
@@ -7,4 +13,29 @@ Give badpress:
 <textarea name="content" rows="10" cols="70"></textarea>
 <br>
 <input type="submit" value="Submit">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
+
+<script>
+check = (form) => {
+    if (form.company.value == "") {
+        alert("Please enter company name")
+        return false
+    }
+    if (form.content.value == "") {
+        alert("Please enter company name")
+        return false
+    }
+    if (form.content.value.length > 1000) {
+        alert("Too long badpress, please use less than 1000 characters")
+        return false
+    }
+    return true
+}
+</script>
+
+<br><br>
+<hr>
+<a href="/">Main Page</a>
+
+{% endblock %}
