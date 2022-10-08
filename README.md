@@ -1,8 +1,10 @@
 # badpress
 ### Mockup of badpress service for complaints, yammer and bad reviews
 
-Current status: most or services operational, 
-User profiles and likes to be implemented.
+Current status: services operational, 
+potentially a single post (badpress) view might be added.
+Admin functions can be tested with user "hangon" pwd "keksi"
+
 
 [badpress at heroku](https://badpress.herokuapp.com/)
 
@@ -14,7 +16,6 @@ User profiles and likes to be implemented.
 
 *A Registered user* can:
  * create bad review
- * delete/hide a review created by him/her
  * view other reviews
  * correlate to other reviews by clicking Like/Vote up -button
  * search for a specific company for reviews
@@ -23,6 +24,7 @@ User profiles and likes to be implemented.
 *An Admin* can:
  * delete/hide insulting or abusive reviews
  * search for a specific company for reviews
+ * list all the reviews and see all data
 
 
 Further development options: 
