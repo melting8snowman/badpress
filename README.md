@@ -9,8 +9,8 @@ Also might add some visuality, but that is not a necessity.
 At herolu, the Admin functions can be tested with 
 user "hangon" pwd "keksi"
 
-
 --
+
 **Two user profiles:** registered user and admin
 
 **Features:**
