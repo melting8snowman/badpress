@@ -25,6 +25,8 @@ def send():
     # proceed with adding to db
     company = request.form["company"]
     content = request.form["content"]
+    if (len(company) == 0 | len(content) == 0):
+        return render_template("error.html", error="Please enter both company name and badpress", previous="/new_entry")
     if len(company) > 100:
         return render_template("error.html", error="Please use a shorter company name", previous="/new_entry")
     if len(content) > 5000:

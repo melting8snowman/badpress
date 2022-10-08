@@ -4,7 +4,7 @@
 
 <h2>Add new badpress</h2>
 <br>
-<form action="/send" method="post">
+<form action="/send" method="post" onsubmit="return check(this)">
 Company: 
 <br>
 <textarea name="company" rows="1" cols="50"></textarea><br>
@@ -23,10 +23,10 @@ check = (form) => {
         return false
     }
     if (form.content.value == "") {
-        alert("Please enter company name")
+        alert("Please enter the badpress")
         return false
     }
-    if (form.content.value.length > 1000) {
+    if (form.content.value.length > 5000) {
         alert("Too long badpress, please use less than 1000 characters")
         return false
     }

@@ -1,3 +1,4 @@
 .env
 __pycache__
 venv
+intialize_test_data.sql
