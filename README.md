@@ -1,15 +1,16 @@
 # badpress
 ### Mockup of badpress service for complaints, yammer and bad reviews
 
-Current status: services operational, 
+Current status: all services operational, 
 potentially a single post (badpress) view might be added.
-Admin functions can be tested with user "hangon" pwd "keksi"
+Also might add some visuality, but that is not a necessity.
+
+[badpress can be run at heroku](https://badpress.herokuapp.com/)
+At herolu, the Admin functions can be tested with 
+user "hangon" pwd "keksi"
 
 
-[badpress at heroku](https://badpress.herokuapp.com/)
-
-
-
+--
 **Two user profiles:** registered user and admin
 
 **Features:**
