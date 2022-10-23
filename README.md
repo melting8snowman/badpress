@@ -1,9 +1,7 @@
 # badpress
 ### Mockup of badpress service for complaints, yammer and bad reviews
 
-Current status: all services operational, 
-potentially a single post (badpress) view might be added.
-Also some visuality improvements might follow, but that is not a necessity.
+Status: all services operational
 
 [badpress can be run at heroku](https://badpress.herokuapp.com/)
 
@@ -20,15 +18,19 @@ user "hangon" pwd "keksi"
  * create bad review
  * view other reviews
  * correlate to other reviews by clicking Like/Vote up -button
+   as badpress is a raging app, a user can update as many likes/dislikes
+   (s)he wants in order to calm down
  * search for a specific company for reviews
  * see a list of all the reviews (s)he has written
 
 *An Admin* can:
+ * see all rewiews with all details
  * delete/hide insulting or abusive reviews
- * search for a specific company for reviews
- * list all the reviews and see all data
+ * search for all reviews of a company
+ * see a list of all the reviews (s)he has written
+ * operate all the functionalities that a normal user has available
 
 
 Further development options: 
-A company could respond to the bad press given to them, but that feature will not be included in this development phase.
+A company could respond to the bad press given to them, but that feature will not be included in this version of the app.
 
