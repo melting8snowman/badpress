@@ -31,6 +31,14 @@ body {
     heigth: fit-content;
 }
 
+.sis { 
+    margin-top: 22px;
+    margin-bottom: 2px;
+	padding: 4px;
+    line-height: 1.2;
+
+}
+
 rivi {
     margin: auto;
     width: 90%;
@@ -43,6 +51,7 @@ rivi {
 viiva {
     background: white;
     padding: 0px;
+
 }
 
 

@@ -6,7 +6,7 @@
 {% block content %}
 <div class='hdr'>
 {% if session.user_id %}
-Welcome user {{ username[0] }}!! &nbsp &nbsp | <a href="/filterown">Show my reviews</a>
+Welcome user {{ username }}!! &nbsp &nbsp | <a href="/filterown">Show my reviews</a>
 
 {% if session.is_admin %}
 <br>
@@ -25,16 +25,16 @@ Admin accesses activated.
 {% endif %}
 </div>
 
-</br>
-{% if searched %}
+<div class='sis'>
+{% if searched %} 
 Currently there are  {{ count }} badpress posts matching the filtered content 
 <br>
 <a href="/">Show all badpress</a>
 {% else %}
 Currently there are  {{ count }} badpress posts.
 {% endif %}
-
-<hr></hr>
+</div>
+<hr width="98%"></hr>
 
 {% for post in posts %}
 <div class='posti'>
@@ -47,10 +47,11 @@ Currently there are  {{ count }} badpress posts.
 <br>
 <i>alikes:</i> {{ post.likes }} {% if session.user_id %} <a href="/addlike/{{ post.id }}">Add like</a>{% endif %} &nbsp &nbsp <i>dislikes:</i> {{ post.nonlikes }} {% if session.user_id %}<a href="/dislike/{{ post.id }}">Dislike</a>  {% endif %}
 </div>
-
 <viiva>
-<hr></hr>
+<hr width="98%"></hr>
 </viiva>
+
+
 {% endfor %}
 
 {% endblock %}
