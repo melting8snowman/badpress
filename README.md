@@ -8,7 +8,8 @@ Status: all services operational
 At heroku, the Admin functions can be tested with 
 user "hangon" pwd "keksi"
 
---
+
+
 **Features:**
 
 **Two user profiles:** registered user and admin
