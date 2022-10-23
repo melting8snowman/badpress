@@ -34,7 +34,7 @@ user "hangon" pwd "keksi"
 Further development options: 
 A company could respond to the bad press given to them, but that feature will not be included in this version of the ap
 
---
+
 
 ![image](https://user-images.githubusercontent.com/61463281/197418240-3ec74fb5-969f-4ac7-abaa-87d02f230b80.png)
 
