@@ -31,6 +31,7 @@ user "hangon" pwd "keksi"
  * see a list of all the reviews (s)he has written
  * operate all the functionalities that a normal user has available
 
+![tietokannanrakenne](https://user-images.githubusercontent.com/61463281/197418117-c50af2c0-44e1-425e-b2fb-7566dc0ea660.jpg)
 
 Further development options: 
 A company could respond to the bad press given to them, but that feature will not be included in this version of the app.
