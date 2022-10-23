@@ -38,7 +38,7 @@ Currently there are  {{ count }} badpress posts.
 <p>
 <i>badpress:</i> {{ post.content }}
 <p>
-<i>likes:</i> {{ post.likes }} {% if session.user_id %} <a href="/addlike/{{ post.id }}">Add like</a> {% endif %}
+<i>alikes:</i> {{ post.likes }} {% if session.user_id %} <a href="/addlike/{{ post.id }}">Add like</a> &nbsp &nbsp <a href="/dislike/{{ post.id }}">Dislike</a>  {% endif %}
 
 <hr>
 {% endfor %}

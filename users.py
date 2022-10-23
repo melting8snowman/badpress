@@ -4,7 +4,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 import secrets
 
 def login(username, password):
-    sql = "SELECT id, password, is_admin FROM users WHERE username=:username"
+    sql = "SELECT id, password FROM users WHERE username=:username"
     result = db.session.execute(sql, {"username":username})
     user = result.fetchone()
     if not user:
@@ -13,8 +13,9 @@ def login(username, password):
         if check_password_hash(user.password, password):
             session["user_id"] = user.id
             session["username"] = username
-            session["is_admin"] = user.is_admin
+            session["is_admin"] = is_admin()
             session["csrf_token"] = secrets.token_hex(16)
+            print("sessionadmin:", session["is_admin"], "userin is_admin()", is_admin())
             return True
         else:
             return False
@@ -28,7 +29,7 @@ def logout():
 def register(username, password):
     hash_value = generate_password_hash(password)
     try:
-        sql = "INSERT INTO users (username,password, is_admin) VALUES (:username,:password, FALSE)"
+        sql = "INSERT INTO users (username,password) VALUES (:username,:password)"
         db.session.execute(sql, {"username":username, "password":hash_value})
         db.session.commit()
     except:
@@ -41,17 +42,27 @@ def user_id():
 def csrf_token_ok(token):
     return session["csrf_token"] == token
 
-def get_username():
-    uname = user_id()
-    sql = "SELECT username FROM users WHERE id = :uname"
-    result = db.session.execute(sql, {"uname":uname})
-    return result.fetchone()
+#def get_username():
+#    uname = user_id()
+#    sql = "SELECT username FROM users WHERE id = :uname"
+#    result = db.session.execute(sql, {"uname":uname})
+#    return result.fetchone()
+
+def username():
+    return session.get("username",0)
 
 
 def is_admin():
-    id = user_id()
-    sql = "SELECT 1 FROM users WHERE id=:user_id AND is_admin=TRUE"
-    result = db.session.execute(sql, {"user_id":id})
+    if not session:
+        return False
+    if session["username"]:
+        username = session["username"]
+    else:
+        return False
+    if username == 0 :
+        return False
+    sql = "SELECT 1 FROM admins WHERE username=:username AND active = TRUE"
+    result = db.session.execute(sql, {"username":username})
     if result.fetchone():
         return True
     return False

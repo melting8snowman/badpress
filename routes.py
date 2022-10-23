@@ -8,7 +8,7 @@ import posts, users
 @app.route("/")
 def index():
     list = posts.get_list()
-    username = users.get_username()
+    username = users.username()
     searched = bool(False)
     return render_template("index.html", count=len(list), posts=list, username=username, searched=searched)
 
@@ -46,7 +46,7 @@ def search():
 def results():
     query = request.args["query"]
     rowcount, list = posts.get_comp_list(query)
-    username = users.get_username()
+    username = users.username()
     if rowcount == 0:
         return render_template("error.html", message="No data found. Please try again with another search item.", previous="/search")
     else:
@@ -56,7 +56,7 @@ def results():
 # filter for user´s own reviews
 @app.route("/filterown")
 def filterown():
-    username = users.get_username()
+    username = users.username()
     userid = users.user_id()
     list = posts.get_own(userid)
     searched = bool(True)
@@ -72,6 +72,12 @@ def postview(id):
 @app.route("/addlike/<int:id>")
 def addlike(id):
     posts.add_like(id)
+    return redirect("/")
+
+#DisLike
+@app.route("/dislike/<int:id>")
+def dislike(id):
+    posts.remove_like(id)
     return redirect("/")
 
 ## For Admin
