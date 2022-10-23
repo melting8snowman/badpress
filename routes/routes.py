@@ -1,7 +1,7 @@
 from app import app
 from flask import session, render_template, request, redirect, abort, redirect
-import posts, users
-
+import services.posts as posts 
+import services.users as users
 
 
 # initial
@@ -25,6 +25,7 @@ def send():
     # proceed with adding to db
     company = request.form["company"]
     content = request.form["content"]
+    # check for unallowed input
     if (len(company) == 0 | len(content) == 0):
         return render_template("error.html", error="Please enter both company name and badpress", previous="/new_entry")
     if len(company) > 100:
@@ -77,7 +78,7 @@ def addlike(id):
 #DisLike
 @app.route("/dislike/<int:id>")
 def dislike(id):
-    posts.remove_like(id)
+    posts.dislike(id)
     return redirect("/")
 
 ## For Admin
@@ -121,4 +122,4 @@ def register():
         if users.register(username, password1):
             return redirect("/")
         else:
-            return render_template("error.html", message="Registration unsuccessful", previous="/register")
+            return render_template("error.html", message="Registration unsuccessful, please try a different username", previous="/register")

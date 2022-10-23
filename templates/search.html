@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
-{% block title %}Search{% endblock %}
+{% block title %}search{% endblock %}
 {% block content %}
-<h2>Search</h2>
 <form action="/results" method="GET" onsubmit="return check(this)">
 Search for company: <input type="text" name="query" required>
 <br>

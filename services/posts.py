@@ -1,5 +1,5 @@
 from db import db
-import users
+import services.users as users
 
 def get_list():
     if users.is_admin(): 
@@ -13,7 +13,8 @@ def get_list():
                FROM posts p 
                LEFT JOIN alikes a ON p.id = a.post_id
                LEFT JOIN companies c ON p.company_id = c.company_id
-               WHERE p.visible = true ORDER BY likes DESC, posted_at ASC"""
+               WHERE p.visible = true 
+               ORDER BY likes DESC, posted_at ASC"""
     result = db.session.execute(sql)
     return result.fetchall()
 
@@ -46,20 +47,16 @@ def get_comp_list(query):
                WHERE c.companyname LIKE :query 
                ORDER BY p.id ASC"""
     else:
-        sql = "SELECT id, company_id, companyname, content, user_id, posted_at, visible, likes FROM posts WHERE companyname LIKE :query AND visible = TRUE"
+        sql = """SELECT p.id, p.company_id, c.companyname, p.content, p.user_id, p.posted_at, a.likes, a.nonlikes, p.visible 
+               FROM companies c 
+               LEFT JOIN posts p ON c.company_id = p.company_id
+               INNER JOIN alikes a ON p.id = a.post_id   
+               WHERE c.companyname LIKE :query AND p.visible = TRUE 
+               ORDER BY likes DESC, posted_at ASC"""
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     list = result.fetchall()
     rowcount = len(list)    
     return rowcount, list
-
-def get_single(id):
-    print("IDnyt:", id)
-    if users.is_admin(): 
-        sql = "SELECT id, company_id, companyname, content, user_id, posted_at, likes, visible FROM posts WHERE id = :id LIMIT 1"
-    else:
-        sql = "SELECT id, company_id, companyname, content, user_id, posted_at, likes, visible FROM posts WHERE id = :id AND visible = TRUE LIMIT 1"
-    result = db.session.execute(sql, {"id":id})
-    return result.fetchone()
 
 def send(company, content):
     
@@ -96,10 +93,10 @@ def add_like(id):
     db.session.commit()
     return True
 
-def remove_like(id):
+def dislike(id):
     if id == 0:
         return False
-    sql = "UPDATE alikes SET likes = likes -1 where post_id = :id"
+    sql = "UPDATE alikes SET nonlikes = nonlikes -1 where post_id = :id"
     result = db.session.execute(sql, {"id":id})
     db.session.commit()
     return True

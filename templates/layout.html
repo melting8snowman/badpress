@@ -1,5 +1,15 @@
 <!DOCTYPE html>
-<title>badpress  -  {% block title %}{% endblock %}</title>
-<h1>badpress</h1>
+<head>
+<link rel="stylesheet" href="static/main.css">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
 
-{% block content %}{% endblock %}
+<title>badpress application </title>
+<header>
+<h1>badpress </h1>
+<h2> {% block title %}{% endblock %} </h2>
+</header>
+
+<body>
+{% block content %}{% endblock %} 
+</body>

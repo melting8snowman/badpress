@@ -15,7 +15,6 @@ def login(username, password):
             session["username"] = username
             session["is_admin"] = is_admin()
             session["csrf_token"] = secrets.token_hex(16)
-            print("sessionadmin:", session["is_admin"], "userin is_admin()", is_admin())
             return True
         else:
             return False
@@ -42,11 +41,6 @@ def user_id():
 def csrf_token_ok(token):
     return session["csrf_token"] == token
 
-#def get_username():
-#    uname = user_id()
-#    sql = "SELECT username FROM users WHERE id = :uname"
-#    result = db.session.execute(sql, {"uname":uname})
-#    return result.fetchone()
 
 def username():
     return session.get("username",0)

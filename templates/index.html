@@ -1,10 +1,12 @@
+
 {% extends "layout.html" %}
-{% block title %}Main page{% endblock %}
+
+{% block title %}main page{% endblock %}
 
 {% block content %}
-
+<div class='hdr'>
 {% if session.user_id %}
-Welcome user {{ username[0] }}!! &nbsp &nbsp | <a href="/filterown">Filter my reviews</a>
+Welcome user {{ username[0] }}!! &nbsp &nbsp | <a href="/filterown">Show my reviews</a>
 
 {% if session.is_admin %}
 <br>
@@ -21,26 +23,34 @@ Admin accesses activated.
 <a href="/login">Login</a> | <a href="/register">Register</a>
 <br>Please login to give badpress or likes.
 {% endif %}
-<hr>
-<br>
+</div>
+
+</br>
 {% if searched %}
-Currently there are  {{ count }} badpress posts matching the search filter 
+Currently there are  {{ count }} badpress posts matching the filtered content 
+<br>
+<a href="/">Show all badpress</a>
 {% else %}
 Currently there are  {{ count }} badpress posts.
 {% endif %}
-<hr>
-{% for post in posts %}
-{% if session.is_admin %}
-<i>ID:</i> {{ post.id }} &nbsp &nbsp <i>visible:</i> {{ post.visible }}  &nbsp &nbsp <a href="/togglevisibility/{{ post.id }}">Toggle Visibility</a>
-<p>
-{% endif %}
-<i>posted:</i> {{ post.posted_at.strftime("%Y-%m-%d") }} &nbsp &nbsp <i>company:</i> <a href="http://www.google.com/search?q={{ post.companyname }}">{{ post.companyname }}</a>
-<p>
-<i>badpress:</i> {{ post.content }}
-<p>
-<i>alikes:</i> {{ post.likes }} {% if session.user_id %} <a href="/addlike/{{ post.id }}">Add like</a> &nbsp &nbsp <a href="/dislike/{{ post.id }}">Dislike</a>  {% endif %}
 
-<hr>
+<hr></hr>
+
+{% for post in posts %}
+<div class='posti'>
+{% if session.is_admin %}
+<i>ID:</i> {{ post.id }} &nbsp &nbsp <i>visible:</i> {{ post.visible }}  &nbsp &nbsp <a href="/togglevisibility/{{ post.id }}">Toggle Visibility</a><br>
+{% endif %}
+<i>posted:</i> {{ post.posted_at.strftime("%Y-%m-%d") }} &nbsp &nbsp <i>company:</i> <a href="/results?query={{ post.companyname }}">{{ post.companyname }}</a>
+<br>
+<i>badpress:</i> {{ post.content }}
+<br>
+<i>alikes:</i> {{ post.likes }} {% if session.user_id %} <a href="/addlike/{{ post.id }}">Add like</a>{% endif %} &nbsp &nbsp <i>dislikes:</i> {{ post.nonlikes }} {% if session.user_id %}<a href="/dislike/{{ post.id }}">Dislike</a>  {% endif %}
+</div>
+
+<viiva>
+<hr></hr>
+</viiva>
 {% endfor %}
 
 {% endblock %}

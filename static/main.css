@@ -1,0 +1,112 @@
+
+body {
+    margin: auto;
+    max-width: 80%;
+    font-family: 'Garamond', 'Arial', sans-serif;
+    font-size: 19px;
+    background: white;
+}
+
+.hdr { 
+    background: lightgrey;
+    font-family: 'Garamond', 'Arial', sans-serif;
+    font-size: 20px;
+    color: #33475B;
+    border: 3px solid grey;
+    border-spacing: 30px;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.posti { 
+    background: blanchedalmond;
+    font-family: 'Garamond', 'Arial', sans-serif;
+    font-size: 18px;
+    color: #33475B;
+    border: 3px solid grey;
+    border-spacing: 5px;
+    border-radius: 4px;
+    padding: 6px;
+    line-height: 1.4;
+    heigth: fit-content;
+}
+
+rivi {
+    margin: auto;
+    width: 90%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+    background: blanchedalmond;
+    border-radius: 8px; 
+}
+
+viiva {
+    background: white;
+    padding: 0px;
+}
+
+
+form {
+    padding: .5em;
+    background: blanchedalmond;
+    border-radius: .5em;
+    max-width: 25em;
+    border: 3px solid grey;
+    margin-bottom: 2em;
+    margin-left: 2em; 
+}
+
+form label, input{
+    margin: auto 0;
+}
+
+form #button {
+    grid-column-start: 2;
+    padding:5px;
+    border: none;
+    text-align: center;
+    width: 5em;
+    margin: auto 0 auto 5.5em;
+    background: tan;
+}
+
+form #button:hover{
+    background: rgb(138, 119, 94);
+    color: white;
+}
+
+
+h1 {
+    font-family: 'Century Gothic', 'Garamond', sans-serif;
+    color: #5A5A5A;
+    padding: 8px;
+    font-size: 55px;
+    font-weight: bold;
+    margin: auto;
+    width: 40%;
+}
+
+h2 {
+    font-family: 'Century Gothic', 'Garamond', sans-serif;
+    margin-top: 0;
+    padding: 5px;
+    color: #5A5A5A;
+    font-size: 30px;
+    margin: auto;
+    width: 80%;
+}
+
+.content {
+   background: white;
+   padding: 1.5em 2em;
+   border-radius: .5em
+}
+
+nav li a {
+    text-decoration: none;
+    color: #000;
+}
+
+nav li:hover {
+    background-color: rgb(226, 226, 226);
+}

@@ -1,18 +1,16 @@
-ALTER TABLE users 
-ADD is_admin BOOLEAN NOT NULL 
-DEFAULT FALSE;
 
-ALTER TABLE posts
-ADD visible BOOLEAN NOT NULL
-DEFAULT TRUE;
+CREATE TABLE admins (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users,
+    username TEXT UNIQUE,
+    active BOOLEAN
+);
 
-ALTER TABLE companies
-ADD visible BOOLEAN NOT NULL
-DEFAULT TRUE;
-
-ALTER TABLE posts
-ADD likes INTEGER NOT NULL
-DEFAULT 0;
+CREATE TABLE alikes (
+    post_id SERIAL PRIMARY KEY,
+    likes INTEGER,
+    nonlikes INTEGER
+);
 
 ALTER TABLE users DROP COLUMN is_admin;
 
