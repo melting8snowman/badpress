@@ -36,7 +36,8 @@ A company could respond to the bad press given to them, but that feature will no
 
 --
 
-![tietokannanrakenne](https://user-images.githubusercontent.com/61463281/197418117-c50af2c0-44e1-425e-b2fb-7566dc0ea660.jpg)
+![image](https://user-images.githubusercontent.com/61463281/197418240-3ec74fb5-969f-4ac7-abaa-87d02f230b80.png)
+
 
 
 
