@@ -9,10 +9,10 @@ At heroku, the Admin functions can be tested with
 user "hangon" pwd "keksi"
 
 --
+**Features:**
 
 **Two user profiles:** registered user and admin
 
-**Features:**
 
 *A Registered user* can:
  * create bad review
